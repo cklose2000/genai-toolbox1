@@ -68,6 +68,7 @@ func (r Config) Initialize(ctx context.Context, tracer trace.Tracer) (sources.So
 	s := &Source{
 		Name:     r.Name,
 		Kind:     SourceKind,
+		Project:  r.Project,
 		Client:   client,
 		Location: r.Location,
 	}
@@ -81,6 +82,7 @@ type Source struct {
 	// BigQuery Google SQL struct with client
 	Name     string `yaml:"name"`
 	Kind     string `yaml:"kind"`
+	Project  string `yaml:"project"`
 	Client   *bigqueryapi.Client
 	Location string `yaml:"location"`
 }
@@ -92,6 +94,10 @@ func (s *Source) SourceKind() string {
 
 func (s *Source) BigQueryClient() *bigqueryapi.Client {
 	return s.Client
+}
+
+func (s *Source) GetProject() string {
+	return s.Project
 }
 
 func initBigQueryConnection(

@@ -46,6 +46,7 @@ func newConfig(ctx context.Context, name string, decoder *yaml.Decoder) (tools.T
 
 type compatibleSource interface {
 	BigQueryClient() *bigqueryapi.Client
+	GetProject() string
 }
 
 // validate compatible sources are still compatible
@@ -81,7 +82,7 @@ func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error)
 		return nil, fmt.Errorf("invalid source for %q tool: source kind must be one of %q", kind, compatibleSources)
 	}
 
-	projectParameter := tools.NewStringParameterWithDefault(projectKey, s.BigQueryClient().Project(), "The Google Cloud project ID containing the dataset.")
+	projectParameter := tools.NewStringParameterWithDefault(projectKey, s.GetProject(), "The Google Cloud project ID containing the dataset.")
 	datasetParameter := tools.NewStringParameter(datasetKey, "The dataset to list table ids.")
 	parameters := tools.Parameters{projectParameter, datasetParameter}
 
@@ -124,6 +125,10 @@ func (t Tool) Invoke(ctx context.Context, params tools.ParamValues) ([]any, erro
 	projectId, ok := mapParams[projectKey].(string)
 	if !ok {
 		return nil, fmt.Errorf("invalid or missing '%s' parameter; expected a string", projectKey)
+	}
+	// Handle empty string by using the default project from the source
+	if projectId == "" {
+		projectId = t.Client.Project()
 	}
 
 	datasetId, ok := mapParams[datasetKey].(string)
