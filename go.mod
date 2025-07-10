@@ -5,13 +5,14 @@ go 1.23.8
 toolchain go1.24.4
 
 require (
-	cloud.google.com/go/alloydbconn v1.15.3
+	cloud.google.com/go/alloydbconn v1.15.2
 	cloud.google.com/go/bigquery v1.69.0
-	cloud.google.com/go/bigtable v1.38.0
-	cloud.google.com/go/cloudsqlconn v1.17.2
-	cloud.google.com/go/spanner v1.83.0
-	github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric v0.53.0
-	github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/trace v1.29.0
+	cloud.google.com/go/bigtable v1.37.0
+	cloud.google.com/go/cloudsqlconn v1.17.1
+	cloud.google.com/go/shell v1.8.5
+	cloud.google.com/go/spanner v1.82.0
+	github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric v0.51.0
+	github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/trace v1.27.0
 	github.com/couchbase/gocb/v2 v2.10.0
 	github.com/couchbase/tools-common/http v1.0.9
 	github.com/fsnotify/fsnotify v1.9.0
@@ -39,7 +40,8 @@ require (
 	go.opentelemetry.io/otel/sdk/metric v1.36.0
 	go.opentelemetry.io/otel/trace v1.36.0
 	golang.org/x/oauth2 v0.30.0
-	google.golang.org/api v0.240.0
+	google.golang.org/api v0.233.0
+	google.golang.org/genproto v0.0.0-20250303144028-a0af3efb3deb
 	modernc.org/sqlite v1.38.0
 )
 
@@ -48,8 +50,8 @@ require golang.org/x/exp v0.0.0-20250408133849-7e4ce0ab07d0 // indirect
 require (
 	cel.dev/expr v0.23.0 // indirect
 	cloud.google.com/go v0.121.2 // indirect
-	cloud.google.com/go/alloydb v1.16.1 // indirect
-	cloud.google.com/go/auth v0.16.2 // indirect
+	cloud.google.com/go/alloydb v1.16.0 // indirect
+	cloud.google.com/go/auth v0.16.1 // indirect
 	cloud.google.com/go/auth/oauth2adapt v0.2.8 // indirect
 	cloud.google.com/go/compute/metadata v0.7.0 // indirect
 	cloud.google.com/go/iam v1.5.2 // indirect
@@ -89,7 +91,7 @@ require (
 	github.com/google/flatbuffers v23.5.26+incompatible // indirect
 	github.com/google/s2a-go v0.1.9 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.6 // indirect
-	github.com/googleapis/gax-go/v2 v2.14.2 // indirect
+	github.com/googleapis/gax-go/v2 v2.14.1 // indirect
 	github.com/gorilla/websocket v1.5.3 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.4.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.26.3 // indirect
@@ -134,7 +136,6 @@ require (
 	golang.org/x/time v0.12.0 // indirect
 	golang.org/x/tools v0.33.0 // indirect
 	golang.org/x/xerrors v0.0.0-20240903120638-7835f813f4da // indirect
-	google.golang.org/genproto v0.0.0-20250505200425-f936aa4a68b2 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20250603155806-513f23925822 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250603155806-513f23925822 // indirect
 	google.golang.org/grpc v1.73.0 // indirect

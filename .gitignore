@@ -14,3 +14,19 @@ node_modules
 
 # coverage
 .coverage
+
+# environment
+.env
+
+# binaries
+toolbox
+toolbox-test
+
+# test scripts
+test-*.sh
+test-*.py
+*-wrapper.sh
+add-mcp.sh
+debug-mcp.sh
+quick-test.sh
+run-mcp.sh

@@ -1,0 +1,41 @@
+sources:
+  cloudshell-source:
+    kind: cloud-shell
+    project: ${CLOUD_SHELL_PROJECT}
+    user: ${CLOUD_SHELL_USER}  # Optional
+
+tools:
+  get_environment:
+    kind: cloudshell-get-env
+    source: cloudshell-source
+    description: Get Cloud Shell environment information including SSH connection details
+
+  start_environment:
+    kind: cloudshell-start
+    source: cloudshell-source
+    description: Start Cloud Shell environment and wait for it to become ready
+
+  authorize_environment:
+    kind: cloudshell-authorize
+    source: cloudshell-source
+    description: Authorize Cloud Shell environment for Google Cloud access
+    parameters:
+      - name: access_token
+        type: string
+        description: "Optional: Access token for authorization. If not provided, uses default credentials."
+
+  add_ssh_key:
+    kind: cloudshell-add-key
+    source: cloudshell-source
+    description: Add SSH public key to Cloud Shell for direct SSH access
+    parameters:
+      - name: public_key
+        type: string
+        description: SSH public key to add (e.g., ssh-rsa AAAAB3... user@host)
+
+toolsets:
+  cloudshell-tools:
+    - get_environment
+    - start_environment
+    - authorize_environment
+    - add_ssh_key

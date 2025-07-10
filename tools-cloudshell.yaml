@@ -1,0 +1,32 @@
+sources:
+  my-cloudshell:
+    kind: cloud-shell
+    project: golden-ego-382915
+
+tools:
+  get_env:
+    kind: cloudshell-get-env
+    source: my-cloudshell
+    description: Get my Cloud Shell environment details
+
+  start_env:
+    kind: cloudshell-start
+    source: my-cloudshell
+    description: Start my Cloud Shell environment
+
+  authorize_env:
+    kind: cloudshell-authorize
+    source: my-cloudshell
+    description: Authorize my Cloud Shell for GCP access
+
+  add_key:
+    kind: cloudshell-add-key
+    source: my-cloudshell
+    description: Add SSH key to my Cloud Shell
+
+toolsets:
+  my-cloudshell-tools:
+    - get_env
+    - start_env
+    - authorize_env
+    - add_key

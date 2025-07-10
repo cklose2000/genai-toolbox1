@@ -1,0 +1,81 @@
+sources:
+  bigquery-source:
+    kind: bigquery
+    project: golden-ego-382915
+
+  cloudshell-source:
+    kind: cloud-shell
+    project: golden-ego-382915
+
+tools:
+  # BigQuery tools
+  execute_sql:
+    kind: bigquery-execute-sql
+    source: bigquery-source
+    description: Execute SQL queries in BigQuery
+
+  list_datasets:
+    kind: bigquery-list-dataset-ids
+    source: bigquery-source
+    description: List all BigQuery datasets
+
+  list_tables:
+    kind: bigquery-list-table-ids
+    source: bigquery-source
+    description: List tables in a BigQuery dataset
+
+  get_dataset_info:
+    kind: bigquery-get-dataset-info
+    source: bigquery-source
+    description: Get BigQuery dataset metadata
+
+  get_table_info:
+    kind: bigquery-get-table-info
+    source: bigquery-source
+    description: Get BigQuery table metadata
+
+  # Cloud Shell tools
+  get_cloudshell:
+    kind: cloudshell-get-env
+    source: cloudshell-source
+    description: Get Cloud Shell environment details
+
+  start_cloudshell:
+    kind: cloudshell-start
+    source: cloudshell-source
+    description: Start Cloud Shell environment
+
+  authorize_cloudshell:
+    kind: cloudshell-authorize
+    source: cloudshell-source
+    description: Authorize Cloud Shell for GCP access
+
+  add_ssh_key:
+    kind: cloudshell-add-key
+    source: cloudshell-source
+    description: Add SSH key to Cloud Shell
+
+toolsets:
+  all-tools:
+    - execute_sql
+    - list_datasets
+    - list_tables
+    - get_dataset_info
+    - get_table_info
+    - get_cloudshell
+    - start_cloudshell
+    - authorize_cloudshell
+    - add_ssh_key
+    
+  bigquery-tools:
+    - execute_sql
+    - list_datasets
+    - list_tables
+    - get_dataset_info
+    - get_table_info
+    
+  cloudshell-tools:
+    - get_cloudshell
+    - start_cloudshell
+    - authorize_cloudshell
+    - add_ssh_key
